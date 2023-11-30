@@ -126,6 +126,8 @@ app.get('/blogs', (req, res) => {
 
 app.post('/calculate', (req, res) => {
 
+  res.setHeader('Content-Type', 'application/json');
+
   var carbonEmission = 2.33;
   var travel = 0.0;
   var diet = 0.0;
