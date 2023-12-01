@@ -1,13 +1,12 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-
-const app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const app = express()
 const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-const questions = [
+var questions = [
   {
     "id": 1,
     "question": "How often do you travel by air in a year ?",
@@ -73,7 +72,7 @@ const questions = [
   },
 ];
 
-const blogs = [
+var blogs = [
   {
     "title": "How to Reduce Your Carbon Footprint",
     "image": "https://static01.nyt.com/images/2019/05/07/smarter-living/07carbonfootprint-slide-SUBX/carbonfootprint-slide-SUBX-jumbo.jpg",
@@ -109,38 +108,41 @@ const blogs = [
     "author": "Google",
     "link" : "https://sustainability.google/commitments-europe/#"
   },
-];
+  
+]
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  // res.json(docs);
+  //res.json(docs);
   res.json(questions);
 });
+
 
 app.get('/blogs', (req, res) => {
   res.json(blogs);
 });
 
 app.post('/calculate', (req, res) => {
-  let carbonEmission = 2.33;
-  let travel = 0.0;
-  let diet = 0.0;
-  let carTravel = 0.0;
-  let fuel = 0.0;
-  let shopping = 0.0;
-  let homeSize = 0.0;
-  let homePeople = 0.0;
-  let pet = 0.0;
 
-  const responses = req.body;
+  var carbonEmission = 2.33;
+  var travel = 0.0;
+  var diet = 0.0;
+  var carTravel = 0.0;
+  var fuel = 0.0;
+  var shopping = 0.0;
+  var homeSize = 0.0;
+  var homePeople = 0.0;
+  var pet = 0.0;
 
-  for (let i = 0; i < Object.keys(responses).length; i++) {
-    if (Object.keys(responses).length === 0) {
+  var responses = req.body;
+
+  for (var i = 0; i < Object.keys(responses).length; i++) {
+    if (Object.keys(responses).length == 0) {
       break;
     }
-    if (i === 0) {
+    if (i == 0) {
       switch (responses[i]) {
         case 0:
           carbonEmission += 0.66;
@@ -160,7 +162,7 @@ app.post('/calculate', (req, res) => {
         default:
           break;
       }
-    } else if (i === 1) {
+    } else if (i == 1) {
       switch (responses[i]) {
         case 0:
           carbonEmission -= 0.23;
@@ -182,7 +184,7 @@ app.post('/calculate', (req, res) => {
         default:
           break;
       }
-    } else if (i === 2) {
+    } else if (i == 2) {
       switch (responses[i]) {
         case 0:
           carbonEmission -= 0.42;
@@ -206,7 +208,7 @@ app.post('/calculate', (req, res) => {
         default:
           break;
       }
-    } else if (i === 3) {
+    } else if (i == 3) {
       switch (responses[i]) {
         case 0:
           carbonEmission -= 0.18;
@@ -220,7 +222,7 @@ app.post('/calculate', (req, res) => {
         default:
           break;
       }
-    } else if (i === 4) {
+    } else if (i == 4) {
       switch (responses[i]) {
         case 0:
           carbonEmission += 0.18;
@@ -241,7 +243,7 @@ app.post('/calculate', (req, res) => {
         default:
           break;
       }
-    } else if (i === 5) {
+    } else if (i == 5) {
       switch (responses[i]) {
         case 0:
           carbonEmission -= 0.29;
@@ -263,7 +265,7 @@ app.post('/calculate', (req, res) => {
         default:
           break;
       }
-    } else if (i === 6) {
+    } else if (i == 6) {
       switch (responses[i]) {
         case 0:
           carbonEmission += 0.54;
@@ -284,7 +286,7 @@ app.post('/calculate', (req, res) => {
         default:
           break;
       }
-    } else if (i === 7) {
+    } else if (i == 7) {
       switch (responses[i]) {
         case 0:
           carbonEmission -= 0.05;
@@ -304,7 +306,7 @@ app.post('/calculate', (req, res) => {
         default:
           break;
       }
-    } else if (i === 8) {
+    } else if (i == 8) {
       switch (responses[i]) {
         case 0:
           carbonEmission -= 1.1;
@@ -325,17 +327,7 @@ app.post('/calculate', (req, res) => {
   carbonEmission = carbonEmission.toFixed(2);
   carbonEmission = Number(carbonEmission);
 
-  const result = {
-    "result": carbonEmission,
-    "travel": travel,
-    "diet": diet,
-    "carTravel": carTravel,
-    "fuel": fuel,
-    "shopping": shopping,
-    "homeSize": homeSize,
-    "homePeople": homePeople,
-    "pet": pet
-  };
+  var result = { "result": carbonEmission, "travel": travel, "diet": diet, "carTravel": carTravel, "fuel": fuel, "shopping": shopping, "homeSize": homeSize, "homePeople": homePeople, "pet": pet };
   res.send(result);
 });
 
