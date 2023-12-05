@@ -114,6 +114,24 @@ var blogs = [
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+var tasks = [
+  {
+    "id": 1,
+    "name": "Task 1",
+    "description": "Description for Task 1"
+  },
+  {
+    "id": 2,
+    "name": "Task 2",
+    "description": "Description for Task 2"
+  },
+  {
+    "id": 3,
+    "name": "Task 3",
+    "description": "Description for Task 3"
+  }
+];
+
 app.get('/', (req, res) => {
   //res.json(docs);
   res.json(questions);
@@ -124,18 +142,10 @@ app.get('/blogs', (req, res) => {
   res.json(blogs);
 });
 
+// New '/task' endpoint
 app.get('/task', (req, res) => {
-  // You can customize the tasks as per your requirement
-  var tasks = [
-    { id: '1', name: 'Task 1' },
-    { id: '2', name: 'Task 2' },
-    { id: '3', name: 'Bonus Task' },
-  ];
-
   res.json(tasks);
 });
-
-
 
 app.post('/calculate', (req, res) => {
 
