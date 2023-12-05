@@ -127,13 +127,14 @@ app.get('/blogs', (req, res) => {
 app.get('/task', (req, res) => {
   // You can customize the tasks as per your requirement
   var tasks = [
-    { id: 1, title: 'Task 1', description: 'Description 1' },
-    { id: 2, title: 'Task 2', description: 'Description 2' },
-    { id: 3, title: 'Task 3', description: 'Description 3' },
+    { id: '1', name: 'Task 1' },
+    { id: '2', name: 'Task 2' },
+    { id: '3', name: 'Bonus Task' },
   ];
 
   res.json(tasks);
 });
+
 
 
 app.post('/calculate', (req, res) => {
