@@ -114,12 +114,6 @@ var blogs = [
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var tasks = [
-  '1': 'Default Task 1',
-  '2': 'Default Task 2',
-  '3': 'Default Bonus Task',
-];
-
 app.get('/', (req, res) => {
   //res.json(docs);
   res.json(questions);
@@ -128,11 +122,6 @@ app.get('/', (req, res) => {
 
 app.get('/blogs', (req, res) => {
   res.json(blogs);
-});
-
-// New '/task' endpoint
-app.get('/task', (req, res) => {
-  res.json(tasks);
 });
 
 app.post('/calculate', (req, res) => {
