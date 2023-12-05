@@ -115,21 +115,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var tasks = [
-  {
-    "id": 1,
-    "name": "Task 1",
-    "description": "Description for Task 1"
-  },
-  {
-    "id": 2,
-    "name": "Task 2",
-    "description": "Description for Task 2"
-  },
-  {
-    "id": 3,
-    "name": "Task 3",
-    "description": "Description for Task 3"
-  }
+  '1': 'Default Task 1',
+  '2': 'Default Task 2',
+  '3': 'Default Bonus Task',
 ];
 
 app.get('/', (req, res) => {
