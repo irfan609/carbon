@@ -74,11 +74,11 @@ var questions = [
 
 var blogs = [
   {
-    "title": "How to Reduce Your Carbon Footprint",
-    "image": "https://static01.nyt.com/images/2019/05/07/smarter-living/07carbonfootprint-slide-SUBX/carbonfootprint-slide-SUBX-jumbo.jpg",
-    "desc": "A carbon footprint is the total amount of greenhouse gas emissions that come from the production...",
-    "author": "Livia Albeck-Ripka",
-    "link": "https://www.nytimes.com/guides/year-of-living-better/how-to-reduce-your-carbon-footprint"
+    "title": "OCBC Bank to incorporate MGTC’S LCOS into transition financing plan",
+    "image": "https://www.businesstoday.com.my/wp-content/uploads/2023/02/MGTC-OCBC.jpg",
+    "desc": "OCBC Bank is set to become the first financial institution in the country to formulate specific plans....",
+    "author": "The Star",
+    "link": "https://www.thestar.com.my/business/business-news/2023/02/20/ocbc-bank-to-incorporate-mgtcs-lcos-into-transition-financing-plan"
   },
   {
     "title": "How to cut your pet’s carbon footprint",
