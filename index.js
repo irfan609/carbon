@@ -81,32 +81,32 @@ var blogs = [
     "link": "https://www.thestar.com.my/business/business-news/2023/02/20/ocbc-bank-to-incorporate-mgtcs-lcos-into-transition-financing-plan"
   },
   {
-    "title": "How to cut your pet’s carbon footprint",
-    "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/young-woman-walks-her-dog-in-california-park-royalty-free-image-1643614365.jpg?crop=1.00xw:1.00xh;0,0&resize=980:*",
-    "desc": "The way we care for our pets can drastically reduce your carbon footprint and that of your furry best friend...",
-    "author": "Nicoletta Maestrini",
-    "link" : "https://klima.com/blog/how-to-cut-your-pet-carbon-footprint-for-the-climate"
+    "title": "IGEM 2023 to feature over 10 conferences on race to net zero",
+    "image": "https://mma.prnewswire.com/media/2239507/Deputy_Prime_Minister_Malaysia___IGEM_2023.jpg",
+    "desc": "the International Greentech & Eco Products Exhibition & Conference Malaysia (IGEM) 2023 will host over 10 conferences from...",
+    "author": "Bernama",
+    "link" : "https://www.mgtc.gov.my/2023/09/igem-2023-to-feature-over-10-conferences-on-race-to-net-zero/"
   },
   {
-    "title": "CARBON FOOTPRINT FACTSHEET",
-    "image": "https://css.umich.edu/sites/default/files/footcarbon_btn.gif",
-    "desc": "A carbon footprint is the total greenhouse gas (GHG) emissions caused directly and indirectly by an individual, organization, event or product...",
-    "author": "University of Michigan",
-    "link" : "https://css.umich.edu/factsheets/carbon-footprint-factsheet"
+    "title": "SPAN, water service operators to use LCOS system from next year",
+    "image": "https://theedgemalaysia.com/_next/image?url=https%3A%2F%2Fassets.theedgemarkets.com%2Fwater-supply_123rf_46.jpg",
+    "desc": "The low carbon operating software (LCOS) system will be utilised in National Water Services Commission (SPAN) operations and...",
+    "author": "The Edge Malaysia",
+    "link" : "https://theedgemalaysia.com/node/690261"
   },
   {
-    "title": "The 35 Easiest Ways to Reduce Carbon Footprint",
-    "image": "https://news.climate.columbia.edu/wp-content/uploads/2018/12/Carbon_Footprint_MilicaBuha-637x478.jpg",
-    "desc": "In the face of the recent  National Climate Assessment report on the threats of climate change...",
-    "author": "RENEE CHO",
-    "link" : "https://news.climate.columbia.edu/2018/12/27/35-ways-reduce-carbon-footprint/"
+    "title": "Malaysia’s Commitment on Climate Action And Preparations for (UNFCCC) COP28",
+    "image": "https://www.mgtc.gov.my/wp-content/uploads/2023/10/Screenshot-2023-10-18-at-12.33.37%E2%80%AFPM.png",
+    "desc": "Malaysia will also have a presence through a dedicated Malaysia Pavilion, which will showcase Malaysia’s thought leadership and...",
+    "author": "PR News Wire",
+    "link" : "https://www.prnewswire.co.uk/news-releases/malaysias-commitment-on-climate-action-and-preparations-for-the-united-nations-framework-convention-on-climate-change-unfccc-cop28-301950439.html"
   },
   {
-    "title": "Carbon neutral since 2007",
-    "image": "https://sustainability.google/static/images/google-gleaf.gif",
-    "desc": "In our founding decade, Google became the first major company to be carbon neutral. In our second decade...",
-    "author": "Google",
-    "link" : "https://sustainability.google/commitments-europe/#"
+    "title": "COP28: World leaders to address climate benchmark in Dubai",
+    "image": "https://www.mgtc.gov.my/wp-content/uploads/2023/11/jabersd_1700013190.jpg",
+    "desc": "The COP28 hosted by United Arab Emirates this year, will look at ways to set global temperature to 1.5 degrees Celcius...",
+    "author": "Bernama",
+    "link" : "https://www.nst.com.my/news/nation/2023/11/978447/cop28-world-leaders-address-climate-benchmark-dubai"
   },
   
 ]
