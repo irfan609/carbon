@@ -89,7 +89,7 @@ var blogs = [
   },
   {
     "title": "SPAN, water service operators to use LCOS system from next year",
-    "image": "https://i0.wp.com/malaysiatribune.news/wp-content/uploads/2023/11/WhatsApp-Image-2023-11-16-at-20.24.11-jpeg",
+    "image": "https://mma.prnewswire.com/media/2239507/Deputy_Prime_Minister_Malaysia___IGEM_2023.jpg",
     "desc": "The low carbon operating software (LCOS) system will be utilised in SPAN operations and...",
     "author": "The Edge Malaysia",
     "link" : "https://theedgemalaysia.com/node/690261"
