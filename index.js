@@ -111,19 +111,33 @@ var blogs = [
   
 ]
 
+var dailyTasks = {
+  '1': 'Default Task 1',
+  '2': 'Default Task 2',
+  '3': 'Default Bonus Task',
+};
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  //res.json(docs);
   res.json(questions);
 });
 
+app.get('/dailyTasks', (req, res) => {
+  res.json(dailyTasks);
+});
+
+app.post('/dailyTasks', (req, res) => {
+  // Assuming you are sending an updated dailyTasks object in the request body
+  const tasks = req.body;
+  dailyTasks = tasks;
+  res.send('Daily tasks updated successfully');
+});
 
 app.get('/blogs', (req, res) => {
   res.json(blogs);
 });
-
 app.post('/calculate', (req, res) => {
 
   var carbonEmission = 2.33;
