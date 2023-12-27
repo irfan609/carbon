@@ -112,9 +112,9 @@ var blogs = [
 ]
 
 var dailyTasks = {
-  '1': 'Default Task 1',
-  '2': 'Default Task 2',
-  '3': 'Default Bonus Task',
+  '1': 'Use recycle bin',
+  '2': 'Use public transport',
+  '3': 'Sleep without using air conditioner',
 };
 
 app.use(bodyParser.urlencoded({ extended: false }));
