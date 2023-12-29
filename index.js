@@ -1,10 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express()
+const admin = require('firebase-admin');
+const cron = require('node-cron');
+
+const app = express();
 const port = process.env.PORT || 3000;
+admin.initializeApp();
+const _firestore = admin.firestore();
 
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 var questions = [
   {
@@ -112,9 +119,9 @@ var blogs = [
 ]
 
 var dailyTasks = {
-  '1': 'Use recycle bin',
-  '2': 'Use public transport',
-  '3': 'Sleep without using air conditioner',
+  '1': 'Default Task 1',
+  '2': 'Default Task 2',
+  '3': 'Default Bonus Task',
 };
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -343,6 +350,38 @@ app.post('/calculate', (req, res) => {
 
   var result = { "result": carbonEmission, "travel": travel, "diet": diet, "carTravel": carTravel, "fuel": fuel, "shopping": shopping, "homeSize": homeSize, "homePeople": homePeople, "pet": pet };
   res.send(result);
+});
+
+// Schedule the daily update at 11:59 PM GMT+8
+cron.schedule('59 23 * * *', async () => {
+  try {
+    // Perform the daily update logic here
+    const usersCollection = _firestore.collection('users');
+    const usersSnapshot = await usersCollection.get();
+
+    usersSnapshot.forEach(async (userDoc) => {
+      const userUid = userDoc.id;
+      const userData = userDoc.data();
+
+      // Get the 'point' value and store it in dailyPointValue
+      const dailyPointValue = userData.point || 0;
+
+      // Store dailyPointValue based on the day
+      const today = new Date();
+      const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+      const dailyPointUpdate = {};
+      dailyPointUpdate[dayOfWeek] = dailyPointValue;
+
+      await usersCollection.doc(userUid).update({
+        dailyPoint: dailyPointUpdate,
+        point: 0, // Reset 'point' to zero
+      });
+    });
+
+    console.log('Daily update completed.');
+  } catch (error) {
+    console.error('Error during daily update:', error);
+  }
 });
 
 app.listen(port, () => console.log(`Carbon Footprint app listening on port ${port}!`));
