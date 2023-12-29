@@ -353,7 +353,7 @@ app.post('/calculate', (req, res) => {
 });
 
 // Schedule the daily update at 11:59 PM GMT+8
-cron.schedule('59 23 * * *', async () => {
+cron.schedule('35 11 * * *', async () => {
   try {
     // Perform the daily update logic here
     const usersCollection = _firestore.collection('users');
