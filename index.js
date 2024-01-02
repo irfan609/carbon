@@ -370,7 +370,7 @@ app.post('/calculate', (req, res) => {
   res.send(result);
 });
 
-cron.schedule('23 15 * * *', async () => {
+cron.schedule('57 15 * * *', async () => {
   try {
     console.log('Cron job started for daily update.');
     
