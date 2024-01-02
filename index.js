@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const admin = require('firebase-admin');
-const serviceAccount = require('C:/flutterproject/lcosApp/carbon/lcos-app-2e724-firebase-adminsdk-bed0b-d3188d31fb.json');
+const serviceAccount = require('C:/flutterproject/lcosApp/carbon/serviceAccount.json');
 const cron = require('node-cron');
 
 admin.initializeApp({
