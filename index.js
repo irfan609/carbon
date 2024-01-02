@@ -2,20 +2,29 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const admin = require('firebase-admin');
-const serviceAccountPath = process.env.SERVICE_ACCOUNT_PATH || 'C:/flutterproject/lcosApp/carbon/lcos-app-2e724-firebase-adminsdk-bed0b-d3188d31fb.json';
-const serviceAccount = require(serviceAccountPath);
-
-
 const cron = require('node-cron');
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  projectId: 'lcos-app-2e724',
-});
-
 const app = express();
 const port = process.env.PORT || 3000;
 const _firestore = admin.firestore();
+
+admin.initializeApp({
+  credential: admin.credential.cert({
+
+  "type": "service_account",
+  "project_id": "lcos-app-2e724",
+  "private_key_id": "d3188d31fb5cebd33d6df1e6bb6db52487d7b738",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQCyKj3z8Dv/VKZD\nHYrZFaTsTNXM51K7GkLm6V3A0cRqLUjOi59fZMX+hTdVWccKUmBqp9K63o/3OcRP\nWAK/OUXw09ox9QV3R1MrxkaR+yQtRu0V/2ghPMvPhvsYfqMgFOmS6hXo7YLw/g9k\nbyp5SYjtDj/pNjB7SXIVPYMncqrORGPUDsOUiEsjJ58E5HFQva6Pda2IuwM98kUb\npO26wJpBuS/F0GQhvbze5mB/aNfgqbSC8M3+BUmkOkU0wLWXgwJmFoGKuIsPR/84\nSj/hukvpuCUx746BB5H88vbMKenDFWT6MevebNbfMtrD1xovx9s1xGmgg3QhIXpF\n2c/Jqbc3AgMBAAECgf9qGsMp/tvGbd0FB15RqU54ZwOr6HwyD7qL95djHWIBz8QW\ndTOkj5koj0vLx5UuLpq/qMlhTq08QS1uqfkC3xGEYsTnRuQ+NqLvy9KkyGdmSU0g\nOJRkPAqEdqodno7X+EcEdmlt0/FIHCQ2vaNZPdjYCY3jOiPIieN42++hzV+qixHE\nMuJHd8JmzjDbLQoHa1a/3Ds8QVmUP/sZQl6aY35pg1loTxmecAgwWoXo31xfqKWG\nziZT8s3UGe4jaIAJav0Npvk5hQlgdIn0w3/cyJlZruLGs+M/or8YQwbK3qQof1J+\ntFErv83ntGMOlRaGb+886WHjJNXs+C5H8an64/kCgYEA25gXYJiQp/8XmtuAM9rB\n16V1eBuiHsZ5X4zUWflEKvBf6ls024uHk7utqd920xggIKEevTUjrZ/q1X42DQ1A\n9GdFD/cHypZeaX0gNAtEYolJSkFKewfLRfxTeZGq4m1PLqgGBpyVvKoULEUk+2ks\nsu/uavyCeSFRC3XkF4PyfR8CgYEAz7PWKTT18VthlAgEMhZX9/Mhzor7THzzeHjD\nm/AmdLj3GPiKUXHuk+DoRR85OTJKAB794zmL933owbPunQbZGaIEJpoOYHFFc9pl\nFmzPUL85gCNlhWgGwSMpqi1iugQJ0kcyL9d/9iCLOAX7em/CgNcfxdKDoH1miQ9k\na4n5aukCgYANdNR55t92a/tWUf0ZMF6QiGMaaRcWK7NkV4zrtoqm1vQJuG0UxwgX\n1Xhe4IK3jNLrLPRlQ8xb52DMlF9bjWRdlbZ1s/2WPICsli5TAh2+rAsBsd6Oi3u5\nXiz/Vh3SokAn68Pyw8WpOgLic5pAjcFfdbR2eeLE6XW97gt8JWnGoQKBgGj2SbDz\nSaKZ+nrTfkNNlVEBNkFpbMtfja6A4OFKADUWUBD3cPbtq5Jhox9jQwjLiCf9gXI1\n36zHnTteUaRbFJVmkdBsI/3K4D1GzbUCcdYtfMJroN9FDbzGp0SPwQeeCNSSFCOn\nNMxN7+z04PwjxFhV3oGa+9e753g2JhpOVJQZAoGAdzgyZ85DskbO5aOsH962XAEq\nXnYtKDuKMNyEdVWgE+9I11OjVsEErMuP8mjgpiYUcrB+0GHIBAXJKNk7WqK6YaC3\nK5OOyZVgFVve078fpUz5J2OjFalhDsrqyB+ZIvHZayhLXDoIzCPsrCPN77XZsQLE\naI/5ICOS7m5+UV6JQhs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-bed0b@lcos-app-2e724.iam.gserviceaccount.com",
+  "client_id": "114978187058541395802",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-bed0b%40lcos-app-2e724.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+
+  }),
+  projectId: 'lcos-app-2e724',
+});
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
