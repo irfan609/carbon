@@ -4,12 +4,14 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 const cron = require('node-cron');
 
+// Initialize the Firebase app once
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
 });
 
 const app = express();
 const port = process.env.PORT || 3000;
+
 const _firestore = admin.firestore();
 
 app.use(cors());
