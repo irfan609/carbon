@@ -4,6 +4,10 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 const cron = require('node-cron');
 
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+});
+
 const app = express();
 const port = process.env.PORT || 3000;
 admin.initializeApp();
@@ -353,10 +357,8 @@ app.post('/calculate', (req, res) => {
 });
 
 // Schedule the daily update at 11:59 PM GMT+8
-cron.schedule('35 12 * * *', async () => {
+cron.schedule('50 11 * * *', async () => {
   try {
-    console.log('Starting daily update...');
-
     // Perform the daily update logic here
     const usersCollection = _firestore.collection('users');
     const usersSnapshot = await usersCollection.get();
