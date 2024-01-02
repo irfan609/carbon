@@ -356,7 +356,7 @@ app.post('/calculate', (req, res) => {
 });
 
 // Schedule the daily update at 11:59 PM GMT+8
-cron.schedule('02 10 * * *', async () => {
+cron.schedule('06 10 * * *', async () => {
   try {
     console.log('Cron job started.');
     // Perform the daily update logic here
