@@ -4,6 +4,7 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 const cron = require('node-cron');
 
+
 const serviceAccount = {
   "type": "service_account",
   "project_id": "lcos-app-2e724",
@@ -369,7 +370,7 @@ app.post('/calculate', (req, res) => {
   res.send(result);
 });
 
-cron.schedule('37 14 * * *', async () => {
+cron.schedule('43 14 * * * Asia/Kuala_Lumpur', async () => {
   try {
     console.log('Cron job started for daily update.');
     
