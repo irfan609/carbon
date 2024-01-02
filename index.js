@@ -3,13 +3,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const admin = require('firebase-admin');
 const cron = require('node-cron');
-const app = express();
-const port = process.env.PORT || 3000;
-const _firestore = admin.firestore();
 
 admin.initializeApp({
   credential: admin.credential.cert({
-
   "type": "service_account",
   "project_id": "lcos-app-2e724",
   "private_key_id": "d3188d31fb5cebd33d6df1e6bb6db52487d7b738",
@@ -21,10 +17,13 @@ admin.initializeApp({
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-bed0b%40lcos-app-2e724.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
-
   }),
   projectId: 'lcos-app-2e724',
 });
+
+const app = express();
+const port = process.env.PORT || 3000;
+const _firestore = admin.firestore();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
