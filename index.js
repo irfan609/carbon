@@ -152,6 +152,42 @@ app.get('/dailyTasks', (req, res) => {
   res.json(dailyTasks);
 });
 
+app.get('/updatereset', async (req, res) => {
+  try {
+    console.log('Manual update/reset triggered.');
+
+    // Perform the daily update logic here
+    const usersCollection = _firestore.collection('users');
+    const usersSnapshot = await usersCollection.get();
+
+    usersSnapshot.forEach(async (userDoc) => {
+      const userUid = userDoc.id;
+      const userData = userDoc.data();
+
+      // Get the 'point' value and store it in dailyPointValue
+      const dailyPointValue = userData.point || 0;
+
+      // Store dailyPointValue based on the day
+      const today = new Date();
+      const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+      const dailyPointUpdate = {};
+      dailyPointUpdate[dayOfWeek] = dailyPointValue;
+
+      await usersCollection.doc(userUid).update({
+        dailyPoint: dailyPointUpdate,
+        point: 0, // Reset 'point' to zero
+      });
+    });
+
+    console.log('Manual update/reset completed.');
+    
+    res.send('Manual update/reset completed.');
+  } catch (error) {
+    console.error('Error during manual update/reset:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 app.post('/dailyTasks', (req, res) => {
   // Assuming you are sending an updated dailyTasks object in the request body
   const tasks = req.body;
