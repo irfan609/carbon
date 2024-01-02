@@ -356,10 +356,41 @@ app.post('/calculate', (req, res) => {
 });
 
 // Schedule the daily update at 11:59 PM GMT+8
-cron.schedule('06 10 * * *', async () => {
+// cron.schedule('06 10 * * *', async () => {
+//   try {
+//     console.log('Cron job started.');
+//     // Perform the daily update logic here
+//     const usersCollection = _firestore.collection('users');
+//     const usersSnapshot = await usersCollection.get();
+
+//     usersSnapshot.forEach(async (userDoc) => {
+//       const userUid = userDoc.id;
+//       const userData = userDoc.data();
+
+//       // Get the 'point' value and store it in dailyPointValue
+//       const dailyPointValue = userData.point || 0;
+
+//       // Store dailyPointValue based on the day
+//       const today = new Date();
+//       const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+//       const dailyPointUpdate = {};
+//       dailyPointUpdate[dayOfWeek] = dailyPointValue;
+
+//       await usersCollection.doc(userUid).update({
+//         dailyPoint: dailyPointUpdate,
+//         point: 0, // Reset 'point' to zero
+//       });
+//     });
+
+//     console.log('Daily update completed.');
+//   } catch (error) {
+//     console.error('Error during daily update:', error);
+//   }
+// });
+
+app.get('/testDailyUpdate', async (req, res) => {
   try {
-    console.log('Cron job started.');
-    // Perform the daily update logic here
+    // Your existing daily update logic here
     const usersCollection = _firestore.collection('users');
     const usersSnapshot = await usersCollection.get();
 
@@ -381,10 +412,11 @@ cron.schedule('06 10 * * *', async () => {
         point: 0, // Reset 'point' to zero
       });
     });
-
-    console.log('Daily update completed.');
+    console.log('Manual daily update test completed.');
+    res.send('Manual daily update test completed.');
   } catch (error) {
-    console.error('Error during daily update:', error);
+    console.error('Error during manual daily update test:', error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
