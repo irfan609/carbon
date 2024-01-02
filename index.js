@@ -370,7 +370,7 @@ app.post('/calculate', (req, res) => {
   res.send(result);
 });
 
-cron.schedule('* * * * *',  () => {
+cron.schedule('22 15 * * *', async () => {
   try {
     console.log('Cron job started for daily update.');
     
@@ -401,6 +401,10 @@ cron.schedule('* * * * *',  () => {
   } catch (error) {
     console.error('Error during daily update:', error);
   }
+}, {
+  scheduled: true,
+  timezone: 'Asia/Kuala_Lumpur'
 });
+
 
 app.listen(port, () => console.log(`Carbon Footprint app listening on port ${port}!`));
