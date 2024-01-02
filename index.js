@@ -10,7 +10,6 @@ admin.initializeApp({
 
 const app = express();
 const port = process.env.PORT || 3000;
-admin.initializeApp();
 const _firestore = admin.firestore();
 
 app.use(cors());
