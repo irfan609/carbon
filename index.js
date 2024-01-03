@@ -148,16 +148,40 @@ app.use(bodyParser.json());
 app.get('/marker', (req, res) => {
   const markers = [
     {
-      title: 'Marker 1',
-      snippet: 'Description for Marker 1',
-      position: { latitude: 3.0, longitude: 101.0 },
-      markerId: 'Marker1',
+      title: 'Kudah 1.0',
+      snippet: 'kutip dan riadah 1.0 (Taman Tasik Cempaka',
+      position: { latitude: 96051516704377, longitude: 75915780182095 },
+      markerId: '1',
     },
     {
-      title: 'Marker 2',
-      snippet: 'Description for Marker 2',
-      position: { latitude: 2.5, longitude: 101.5 },
-      markerId: 'Marker2',
+      title: 'Gotong Royong Tasik',
+      snippet: 'Gotong royong membersihkan tasik Titiwangsa',
+      position: { latitude: 3.1778959511591167, longitude: 101.70719229149113 },
+      markerId: '1',
+    },
+    {
+      title: 'Pertunjukan Budaya Hijau',
+      snippet: 'Pertunjukan Budaya Hijau Istana Budaya',
+      position: { latitude: 3.177742802470303, longitude: 101.7072026173547 },
+      markerId: '3',
+    },
+    {
+      title: 'Sayangi Alam',
+      snippet: 'Kempen terbuka kesedaran alam Putrajaya',
+      position: { latitude: 2.914041198328738, longitude: 101.67944172874621 },
+      markerId: '2',
+    },
+    {
+      title: 'Kayuhan Bumi Hijau',
+      snippet: 'Kayuhan basikal 10 KM terbuka Pantai Miami',
+      position: { latitude: 5.370904425461333, longitude: 103.12270310852061 },
+      markerId: '4',
+    },
+    {
+      title: 'Larian Bumi Hijau',
+      snippet: 'Larian 5 KM terbuka Tasik Perdana',
+      position: { latitude: 3.143283527100414, longitude: 101.68482094960031 },
+      markerId: '4',
     },
     // Add more markers as needed
   ];
