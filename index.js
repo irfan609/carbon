@@ -250,6 +250,17 @@ app.get('/marker', (req, res) => {
   res.json(categorizedMarkers);
 });
 
+app.get('/marker/:id', (req, res) => {
+  const markerId = req.params.id;
+  const marker = markers.find((m) => m.markerId === markerId);
+
+  if (marker) {
+    res.json(marker);
+  } else {
+    res.status(404).json({ error: 'Marker not found' });
+  }
+});
+
 app.get('/', (req, res) => {
   res.json(questions);
 });
@@ -259,6 +270,7 @@ app.get('/dailyTasks', (req, res) => {
 });
 
 app.post('/dailyTasks', (req, res) => {
+  // Assuming you are sending an updated dailyTasks object in the request body
   const tasks = req.body;
   dailyTasks = tasks;
   res.send('Daily tasks updated successfully');
