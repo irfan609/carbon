@@ -145,49 +145,78 @@ var dailyTasks = {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/marker', (req, res) => {
-  const markers = [
-    {
-      title: 'Kudah 1.0',
-      snippet: 'kutip dan riadah 1.0 (Taman Tasik Cempaka)',
-      position: { latitude: 2.960344603086238, longitude: 101.75914163371685 },
-      markerId: '1',
-    },
-    {
-      title: 'Gotong Royong Tasik',
-      snippet: 'Gotong royong membersihkan tasik Titiwangsa',
-      position: { latitude: 3.1778959511591167, longitude: 101.70719229149113 },
-      markerId: '2',
-    },
-    {
-      title: 'Pertunjukan Budaya Hijau',
-      snippet: 'Pertunjukan Budaya Hijau Istana Budaya',
-      position: { latitude: 3.177742802470303, longitude: 101.7072026173547 },
-      markerId: '3',
-    },
-    {
-      title: 'Sayangi Alam',
-      snippet: 'Kempen terbuka kesedaran alam Putrajaya',
-      position: { latitude: 2.914041198328738, longitude: 101.67944172874621 },
-      markerId: '4',
-    },
-    {
-      title: 'Kayuhan Bumi Hijau',
-      snippet: 'Kayuhan basikal 10 KM terbuka Pantai Miami',
-      position: { latitude: 5.370904425461333, longitude: 103.12270310852061 },
-      markerId: '5',
-    },
-    {
-      title: 'Larian Bumi Hijau',
-      snippet: 'Larian 5 KM terbuka Tasik Perdana',
-      position: { latitude: 3.143283527100414, longitude: 101.68482094960031 },
-      markerId: '6',
-    },
-    // Add more markers as needed
-  ];
+const markers = [
+  {
+    title: 'Kudah 1.0',
+    snippet: 'kutip dan riadah 1.0 (Taman Tasik Cempaka)',
+    position: { latitude: 2.960344603086238, longitude: 101.75914163371685 },
+    markerId: '1',
+    category: 1, // Added category property
+  },
+  {
+    title: 'Gotong Royong Tasik',
+    snippet: 'Gotong royong membersihkan tasik Titiwangsa',
+    position: { latitude: 3.1778959511591167, longitude: 101.70719229149113 },
+    markerId: '2',
+    category: 2, // Added category property
+  },
+  {
+    title: 'Pertunjukan Budaya Hijau',
+    snippet: 'Pertunjukan Budaya Hijau Istana Budaya',
+    position: { latitude: 3.177742802470303, longitude: 101.7072026173547 },
+    markerId: '3',
+    category: 3, // Added category property
+  },
+  {
+    title: 'Sayangi Alam',
+    snippet: 'Kempen terbuka kesedaran alam Putrajaya',
+    position: { latitude: 2.914041198328738, longitude: 101.67944172874621 },
+    markerId: '4',
+    category: 4, // Added category property
+  },
+  {
+    title: 'Kayuhan Bumi Hijau',
+    snippet: 'Kayuhan basikal 10 KM terbuka Pantai Miami',
+    position: { latitude: 5.370904425461333, longitude: 103.12270310852061 },
+    markerId: '5',
+    category: 1, // Added category property
+  },
+  {
+    title: 'Larian Bumi Hijau',
+    snippet: 'Larian 5 KM terbuka Tasik Perdana',
+    position: { latitude: 3.143283527100414, longitude: 101.68482094960031 },
+    markerId: '6',
+    category: 2, // Added category property
+  },
+  // Add more markers as needed
+];
 
-  res.json(markers);
+app.get('/marker', (req, res) => {
+  const categorizedMarkers = markers.map((marker) => {
+    let color;
+    switch (marker.category) {
+      case 1:
+        color = 'green';
+        break;
+      case 2:
+        color = 'yellow';
+        break;
+      case 3:
+        color = 'blue';
+        break;
+      case 4:
+        color = 'grey';
+        break;
+      default:
+        color = 'red'; // Default color for unknown categories
+        break;
+    }
+    return { ...marker, color };
+  });
+
+  res.json(categorizedMarkers);
 });
+
 
 app.get('/', (req, res) => {
   res.json(questions);
