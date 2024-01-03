@@ -145,6 +145,26 @@ var dailyTasks = {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/marker', (req, res) => {
+  const markers = [
+    {
+      title: 'Marker 1',
+      snippet: 'Description for Marker 1',
+      position: { latitude: 3.0, longitude: 101.0 },
+      markerId: 'Marker1',
+    },
+    {
+      title: 'Marker 2',
+      snippet: 'Description for Marker 2',
+      position: { latitude: 2.5, longitude: 101.5 },
+      markerId: 'Marker2',
+    },
+    // Add more markers as needed
+  ];
+
+  res.json(markers);
+});
+
 app.get('/', (req, res) => {
   res.json(questions);
 });
@@ -370,7 +390,7 @@ app.post('/calculate', (req, res) => {
   res.send(result);
 });
 
-cron.schedule('0 0 * * *', async () => {
+cron.schedule('59 23 * * *', async () => {
   try {
     console.log('Cron job started for daily update.');
     
