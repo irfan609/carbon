@@ -155,11 +155,7 @@ const markers = [
     date:'12/12/2023',
     time:'8.30 am - 10.30am',
     photos: ['https://bebasnews.my/wp-content/uploads/2021/12/266785936_10159982093414948_4189104450872057655_n.jpg','https://twitter.com/KASA_MALAYSIA/status/1554316764074217473/photo/1'],
-    description: 'Acara kutip sampah sambil riadah (kudah) di BANGI Tasik Cempaka meriah.\n' + 
-    'Selain mengutip sampah melebihi 100 plastik sampah, kami belajar tiga perkara penting:\n'+
-    '1. Lebih 80% isipadu sampah yang dikutip adalah plastik pembungkusan makanan, minuman dll.\n'+
-    '2. Walaupun air Sungai Air Hitam (anak Sungai Langat) jernih tetapi dari jauh kelihatan keruh. Ini kerana dasar sungai dan tasik dipenuhi keladak dan selut yang terhasil daripada aktiviti guna tanah dll dalam lembangan. Kekeruhan ini jika dikocak akan berbau disebabkan keladak dan selut mendak dan tertimbun dalam plastik dll sehingga menyebabkan keadaan anaerobik.\n'+
-    '3. Pengunjung terbahagi dua: (a) Datang hanya untuk beriadah tanpa menghiraukan suasana dan kebersihan sungai atau tasik (b) Datang untuk menikmati keindahan dan kebersihan sungai dan tasik, di samping beriadah.',
+    description: 'Acara kutip sampah sambil riadah (kudah) di BANGI Tasik Cempaka meriah.\nSelain mengutip sampah melebihi 100 plastik sampah, kami belajar tiga perkara penting:\n 1. Lebih 80% isipadu sampah yang dikutip adalah plastik pembungkusan makanan, minuman dll.\n2. Walaupun air Sungai Air Hitam (anak Sungai Langat) jernih tetapi dari jauh kelihatan keruh. Ini kerana dasar sungai dan tasik dipenuhi keladak dan selut yang terhasil daripada aktiviti guna tanah dll dalam lembangan. Kekeruhan ini jika dikocak akan berbau disebabkan keladak dan selut mendak dan tertimbun dalam plastik dll sehingga menyebabkan keadaan anaerobik.\n3. Pengunjung terbahagi dua: (a) Datang hanya untuk beriadah tanpa menghiraukan suasana dan kebersihan sungai atau tasik (b) Datang untuk menikmati keindahan dan kebersihan sungai dan tasik, di samping beriadah.',
   },
   {
     title: 'Gotong Royong Tasik',
@@ -170,9 +166,7 @@ const markers = [
     date:'12/12/2023',
     time:'8.30 am - 10.30am',
     photos: ['https://ras.doe.gov.my/v2/wp-content/uploads/2020/12/poster-gotong-royong-768x767.jpg','https://ras.doe.gov.my/v2/wp-content/uploads/2020/12/ras6.jpg'],
-    description: 'Team Rakan Alam Sekitar (RAS) Ibu Pejabat dan JAS Negeri Selangor telah turun padang bagi menjalankan aktiviti gotong royong di Sungai Klang berhampiran Taman Melawati.\n' + 
-    'Aktiviti ini telah disambut baik dengan penglibatan NGOs dan penduduk di sekitar kawasan Taman Melawati. Menjaga kebersihan tidak mengira kawasan adalah tanggungjawab semua pihak, walaupun kita di dalam tempoh pandemik, penjagaan alam sekitar tidak harus di ambil ringgan. Pemiliharaan kebersihan alam yang  berimpak kecik ini akan menjadi besar sekiranya ianya terus dijalankan.\n'+
-    'Ayuh kita menjaga kebersihan alam ini, ingat!! Alam Sekitar Tanggungjawab Bersama. Alam ini amanah tuhan pencipta, maka bersama lah kita membentuk ianya menjadi bumi yang indah dan ceria.\n',
+    description: 'Team Rakan Alam Sekitar (RAS) Ibu Pejabat dan JAS Negeri Selangor telah turun padang bagi menjalankan aktiviti gotong royong di Sungai Klang berhampiran Taman Melawati.\nAktiviti ini telah disambut baik dengan penglibatan NGOs dan penduduk di sekitar kawasan Taman Melawati. Menjaga kebersihan tidak mengira kawasan adalah tanggungjawab semua pihak, walaupun kita di dalam tempoh pandemik, penjagaan alam sekitar tidak harus di ambil ringgan. Pemiliharaan kebersihan alam yang  berimpak kecik ini akan menjadi besar sekiranya ianya terus dijalankan.\nAyuh kita menjaga kebersihan alam ini, ingat!! Alam Sekitar Tanggungjawab Bersama. Alam ini amanah tuhan pencipta, maka bersama lah kita membentuk ianya menjadi bumi yang indah dan ceria.',
   
   },
   {
@@ -196,9 +190,7 @@ const markers = [
     date:'12/12/2023',
     time:'8.30 am - 10.30am',
     photos: ['https://www.ketengah.gov.my/wp-content/uploads/2023/03/337656804_2314424285383853_7770618965888106729_n.jpg','https://www.ketengah.gov.my/wp-content/uploads/2023/03/337531684_244595971249014_7780634154555692849_n.jpg'],
-    description: 'Kempen Kesedaran Kebersihan Alam Sekitar Wilayah KETENGAH terus digerakkan dalam menjadikan lokasi tumpuan pelancong dijaga dan berfungsi dengan baik.\n' + 
-    'Kawasan Rekreasi Pantai Floria, Putrajaya merupakan salah satu tempat tumpuan umum bagi aktiviti berkelah dan mandi-manda. Akan tetapi akibat daripada banjir yang melanda baru-baru ini, kemudahan tandas dan kawasan sekitar telah terjejas dan kotor.\n'+
-    'Kempen ini akan diteruskan agar alam sekitar kita kekal bersih dan mendidik masyarakat supaya menjaga kebersihan, keharmonian dan kelestarian alam sekitar.\n',
+    description: 'Kempen Kesedaran Kebersihan Alam Sekitar Wilayah KETENGAH terus digerakkan dalam menjadikan lokasi tumpuan pelancong dijaga dan berfungsi dengan baik.\nKawasan Rekreasi Pantai Floria, Putrajaya merupakan salah satu tempat tumpuan umum bagi aktiviti berkelah dan mandi-manda. Akan tetapi akibat daripada banjir yang melanda baru-baru ini, kemudahan tandas dan kawasan sekitar telah terjejas dan kotor.\nKempen ini akan diteruskan agar alam sekitar kita kekal bersih dan mendidik masyarakat supaya menjaga kebersihan, keharmonian dan kelestarian alam sekitar',
   
   },
   {
@@ -210,9 +202,7 @@ const markers = [
     date:'12/12/2023',
     time:'8.30 am - 10.30am',
     photos: ['https://ecoknights.org.my/wp-content/uploads/2021/10/KAYUHAN_HIJAU_AD_MAIN-1024x1024.png'],
-    description: 'Sempena Sambutan Hari Alam Sekitar Negara (HASN) 2021 Peringkat Wilayah Persekutuan, EcoKnights mengajak anda semua untuk bersama-sama sertai program Kayuhan Hijau secara virtual!\n' + 
-    'Anda boleh berbasikal di mana-mana lokasi di sekitar tempat tinggal anda dan mengumpul jumlah jarak kayuhan sejauh 25 kilometer. Maklumat lanjut adalah seperti yang tertera di poster di bawah.\n'+
-    'Bagi setiap pendaftaran, anda akan diberi kit atau goodies menarik seperti jersi, medal, no. plat kayuhan, dan e-sijil! Bukan itu sahaja, perlindungan insuran juga tertakluk di bawah program kayuhan ini. Kit penyertaan ini akan dipos ke rumah anda secara percuma. \n',
+    description: 'Sempena Sambutan Hari Alam Sekitar Negara (HASN) 2021 Peringkat Wilayah Persekutuan, EcoKnights mengajak anda semua untuk bersama-sama sertai program Kayuhan Hijau secara virtual!\nAnda boleh berbasikal di mana-mana lokasi di sekitar tempat tinggal anda dan mengumpul jumlah jarak kayuhan sejauh 25 kilometer. Maklumat lanjut adalah seperti yang tertera di poster di bawah.\nBagi setiap pendaftaran, anda akan diberi kit atau goodies menarik seperti jersi, medal, no. plat kayuhan, dan e-sijil! Bukan itu sahaja, perlindungan insuran juga tertakluk di bawah program kayuhan ini. Kit penyertaan ini akan dipos ke rumah anda secara percuma.',
   
   },
   {
@@ -224,8 +214,7 @@ const markers = [
     date:'12/12/2023',
     time:'8.30 am - 10.30am',
     photos: ['https://scontent.fkul8-3.fna.fbcdn.net/v/t1.6435-9/66170641_2517307631664147_8288130594479538176_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=dd63ad&_nc_ohc=cO76-qheGTsAX8HB-kl&_nc_ht=scontent.fkul8-3.fna&oh=00_AfARfR9XdG_WZEPzymwp48ZcWXh8rmJZDKd5GKyQgJuMvA&oe=65BC7C5D'],
-    description: 'Dijemput semua warga Pasir Gudang untuk bersama-sama menjayakan program ini\n' + 
-    'Bagi setiap pendaftaran, anda akan diberi kit atau goodies menarik seperti jersi, medal, no. plat kayuhan, dan e-sijil! Bukan itu sahaja, perlindungan insuran juga tertakluk di bawah program kayuhan ini. Kit penyertaan ini akan dipos ke rumah anda secara percuma. \n',
+    description: 'Dijemput semua warga Pasir Gudang untuk bersama-sama menjayakan program ini\nBagi setiap pendaftaran, anda akan diberi kit atau goodies menarik seperti jersi, medal, no. plat kayuhan, dan e-sijil! Bukan itu sahaja, perlindungan insuran juga tertakluk di bawah program kayuhan ini. Kit penyertaan ini akan dipos ke rumah anda secara percuma.',
   
   },
   // Add more markers as needed
