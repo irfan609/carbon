@@ -157,7 +157,7 @@ app.get('/marker', (req, res) => {
       title: 'Gotong Royong Tasik',
       snippet: 'Gotong royong membersihkan tasik Titiwangsa',
       position: { latitude: 3.1778959511591167, longitude: 101.70719229149113 },
-      markerId: '1',
+      markerId: '2',
     },
     {
       title: 'Pertunjukan Budaya Hijau',
@@ -169,19 +169,19 @@ app.get('/marker', (req, res) => {
       title: 'Sayangi Alam',
       snippet: 'Kempen terbuka kesedaran alam Putrajaya',
       position: { latitude: 2.914041198328738, longitude: 101.67944172874621 },
-      markerId: '2',
+      markerId: '4',
     },
     {
       title: 'Kayuhan Bumi Hijau',
       snippet: 'Kayuhan basikal 10 KM terbuka Pantai Miami',
       position: { latitude: 5.370904425461333, longitude: 103.12270310852061 },
-      markerId: '4',
+      markerId: '5',
     },
     {
       title: 'Larian Bumi Hijau',
       snippet: 'Larian 5 KM terbuka Tasik Perdana',
       position: { latitude: 3.143283527100414, longitude: 101.68482094960031 },
-      markerId: '4',
+      markerId: '6',
     },
     // Add more markers as needed
   ];
