@@ -205,7 +205,7 @@ app.get('/marker', (req, res) => {
         color = 'blue';
         break;
       case 4:
-        color = 'grey';
+        color = 'orange';
         break;
       default:
         color = 'red'; // Default color for unknown categories
