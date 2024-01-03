@@ -149,8 +149,8 @@ app.get('/marker', (req, res) => {
   const markers = [
     {
       title: 'Kudah 1.0',
-      snippet: 'kutip dan riadah 1.0 (Taman Tasik Cempaka',
-      position: { latitude: 96051516704377, longitude: 75915780182095 },
+      snippet: 'kutip dan riadah 1.0 (Taman Tasik Cempaka)',
+      position: { latitude: 2.960344603086238, longitude: 101.75914163371685 },
       markerId: '1',
     },
     {
