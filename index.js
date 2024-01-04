@@ -156,7 +156,7 @@ const markers = [
     time:'8.30 am - 10.30am',
     photos: ['https://bebasnews.my/wp-content/uploads/2021/12/266785936_10159982093414948_4189104450872057655_n.jpg','https://twitter.com/KASA_MALAYSIA/status/1554316764074217473/photo/1'],
     description: 'Acara kutip sampah sambil riadah (kudah) di BANGI Tasik Cempaka meriah.\n' + 
-    'Selain mengutip sampah melebihi 100 plastik sampah, kami belajar tiga perkara penting\n'+
+    'Selain mengutip sampah melebihi 100 plastik sampah, kami belajar tiga perkara penting:\n'+
     '1. Lebih 80% isipadu sampah yang dikutip adalah plastik pembungkusan makanan, minuman dll.\n'+
     '2. Walaupun air Sungai Air Hitam (anak Sungai Langat) jernih tetapi dari jauh kelihatan keruh. Ini kerana dasar sungai dan tasik dipenuhi keladak dan selut yang terhasil daripada aktiviti guna tanah dll dalam lembangan. Kekeruhan ini jika dikocak akan berbau disebabkan keladak dan selut mendak dan tertimbun dalam plastik dll sehingga menyebabkan keadaan anaerobik.\n'+
     '3. Pengunjung terbahagi dua: (a) Datang hanya untuk beriadah tanpa menghiraukan suasana dan kebersihan sungai atau tasik (b) Datang untuk menikmati keindahan dan kebersihan sungai dan tasik, di samping beriadah.',
@@ -169,19 +169,23 @@ const markers = [
     category: 1, 
     date:'12/12/2023',
     time:'8.30 am - 10.30am',
-    photos: ['https://www.facebook.com/masjidibnsina/photos/a.10153739522845431/10161546747620431/?__cft__[0]=AZVUbsj2GbGNs8-2mVjsOykis6YGtrAUzWu0ynpvseizFCln6wHkxABLliWuGaB2oK_slTGxQpoWz4gHyFcT7jEBPxyDjHtANRzeN6fYY6y-wkt8-k-Yz1V6sKMwPETstQt7v2X6Xb1d7wtTA5p9acEIrWEfwnMGVc-uyXMi10UmMw&__tn__=EH-R','https://twitter.com/KASA_MALAYSIA/status/1554316764074217473/photo/1'],
-    description: 'Acara kutip sampah sambil riadah (kudah) di BANGI Tasik Cempaka meriah.\n' , 
-    'Selain mengutip sampah melebihi 100 plastik sampah, kami belajar tiga perkara penting:\n',
-    '1. Lebih 80% isipadu sampah yang dikutip adalah plastik pembungkusan makanan, minuman dll.\n',
-    '2. Walaupun air Sungai Air Hitam (anak Sungai Langat) jernih tetapi dari jauh kelihatan keruh. Ini kerana dasar sungai dan tasik dipenuhi keladak dan selut yang terhasil daripada aktiviti guna tanah dll dalam lembangan. Kekeruhan ini jika dikocak akan berbau disebabkan keladak dan selut mendak dan tertimbun dalam plastik dll sehingga menyebabkan keadaan anaerobik.\n'+
-    '3. Pengunjung terbahagi dua: (a) Datang hanya untuk beriadah tanpa menghiraukan suasana dan kebersihan sungai atau tasik (b) Datang untuk menikmati keindahan dan kebersihan sungai dan tasik, di samping beriadah.',
+    photos: ['https://ras.doe.gov.my/v2/wp-content/uploads/2020/12/poster-gotong-royong-768x767.jpg','https://ras.doe.gov.my/v2/wp-content/uploads/2020/12/ras6.jpg'],
+    description: 'Team Rakan Alam Sekitar (RAS) Ibu Pejabat dan JAS Negeri Selangor telah turun padang bagi menjalankan aktiviti gotong royong di Sungai Klang berhampiran Taman Melawati.\n' + 
+    'Aktiviti ini telah disambut baik dengan penglibatan NGOs dan penduduk di sekitar kawasan Taman Melawati. Menjaga kebersihan tidak mengira kawasan adalah tanggungjawab semua pihak, walaupun kita di dalam tempoh pandemik, penjagaan alam sekitar tidak harus di ambil ringgan. Pemiliharaan kebersihan alam yang  berimpak kecik ini akan menjadi besar sekiranya ianya terus dijalankan.\n'+
+    'Ayuh kita menjaga kebersihan alam ini, ingat!! Alam Sekitar Tanggungjawab Bersama. Alam ini amanah tuhan pencipta, maka bersama lah kita membentuk ianya menjadi bumi yang indah dan ceria.\n',
+  
   },
   {
-    title: 'Pertunjukan Budaya Hijau',
-    snippet: 'Pertunjukan Budaya Hijau Istana Budaya',
+    title: 'Pertunjukan Budaya Pelancongan Hainan',
+    snippet: 'Pertunjukan Budaya Pelancongan Hainan China Berlangsung di Istana Budaya',
     position: { latitude: 3.177742802470303, longitude: 101.7072026173547 },
     markerId: '3',
     category: 2, 
+    date:'12/12/2023',
+    time:'8.30 am - 10.30am',
+    photos: ['https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwCSRviXXOvrUWafx8qBWh2_zndbx4XbKPet2gLsa11uf_UTGL1i8e_o_5qi74KQkfyzhW4kTUA-Gcq9hg4jNw4ZW0NlJLb2ead5JZVcWrrv0-dRIYAsYqN-7nScnVFZtRB_buhWygnCY2JRGZc0247Y63BYi73XiXGF6yhKODKXKK6Tn88XQx0xIr-w/w640-h364/Jom%20Melancong%20Ke%20Hainan%20China.JPG'],
+    description: 'Hainan dan Malaysia merupakan kawasan kepulauan tropika yang berdekatan dan memiliki banyak sumber budaya pelancongan yang serupa. Aktiviti promosi ini memberi peluang kemasukan pelancong luar dengan dasar bebas visa masuk ke Hainan, menormalisasikan penerbangan sebagai logistik penghubungan, menggunakan pameran pelancongan MATTA FAIR Malaysia sebagai platform dan dengan memfokuskan pada sumber daya pelancongan yang umum, iaitu "Hutan Hujan Tropika" melalui acara-acara seperti memperkenalkan budaya kehidupan suku Li Miao dan promosi interaktif hutan hujan tropika. Ia juga turut menunjukkan konsep budaya pelancongan Hainan berkonsepkan "harmonis dengan alam" dan ake rah perkembangan positif pelancongan hijau.', 
+    
   },
   {
     title: 'Sayangi Alam',
@@ -189,6 +193,13 @@ const markers = [
     position: { latitude: 2.914041198328738, longitude: 101.67944172874621 },
     markerId: '4',
     category: 2, 
+    date:'12/12/2023',
+    time:'8.30 am - 10.30am',
+    photos: ['https://www.ketengah.gov.my/wp-content/uploads/2023/03/337656804_2314424285383853_7770618965888106729_n.jpg','https://www.ketengah.gov.my/wp-content/uploads/2023/03/337531684_244595971249014_7780634154555692849_n.jpg'],
+    description: 'Kempen Kesedaran Kebersihan Alam Sekitar Wilayah KETENGAH terus digerakkan dalam menjadikan lokasi tumpuan pelancong dijaga dan berfungsi dengan baik.\n' + 
+    'Kawasan Rekreasi Pantai Floria, Putrajaya merupakan salah satu tempat tumpuan umum bagi aktiviti berkelah dan mandi-manda. Akan tetapi akibat daripada banjir yang melanda baru-baru ini, kemudahan tandas dan kawasan sekitar telah terjejas dan kotor.\n'+
+    'Kempen ini akan diteruskan agar alam sekitar kita kekal bersih dan mendidik masyarakat supaya menjaga kebersihan, keharmonian dan kelestarian alam sekitar.\n',
+  
   },
   {
     title: 'Kayuhan Bumi Hijau',
@@ -196,6 +207,13 @@ const markers = [
     position: { latitude: 5.370904425461333, longitude: 103.12270310852061 },
     markerId: '5',
     category: 3, 
+    date:'12/12/2023',
+    time:'8.30 am - 10.30am',
+    photos: ['https://ecoknights.org.my/wp-content/uploads/2021/10/KAYUHAN_HIJAU_AD_MAIN-1024x1024.png'],
+    description: 'Sempena Sambutan Hari Alam Sekitar Negara (HASN) 2021 Peringkat Wilayah Persekutuan, EcoKnights mengajak anda semua untuk bersama-sama sertai program Kayuhan Hijau secara virtual!\n' + 
+    'Anda boleh berbasikal di mana-mana lokasi di sekitar tempat tinggal anda dan mengumpul jumlah jarak kayuhan sejauh 25 kilometer. Maklumat lanjut adalah seperti yang tertera di poster di bawah.\n'+
+    'Bagi setiap pendaftaran, anda akan diberi kit atau goodies menarik seperti jersi, medal, no. plat kayuhan, dan e-sijil! Bukan itu sahaja, perlindungan insuran juga tertakluk di bawah program kayuhan ini. Kit penyertaan ini akan dipos ke rumah anda secara percuma. \n',
+  
   },
   {
     title: 'Larian Bumi Hijau',
@@ -203,6 +221,13 @@ const markers = [
     position: { latitude: 3.143283527100414, longitude: 101.68482094960031 },
     markerId: '6',
     category: 3, 
+    date:'12/12/2023',
+    time:'8.30 am - 10.30am',
+    photos: ['https://ecoknights.org.my/wp-content/uploads/2021/10/KAYUHAN_HIJAU_AD_MAIN-1024x1024.png'],
+    description: 'Sempena Sambutan Hari Alam Sekitar Negara (HASN) 2021 Peringkat Wilayah Persekutuan, EcoKnights mengajak anda semua untuk bersama-sama sertai program Kayuhan Hijau secara virtual!\n' + 
+    'Anda boleh berbasikal di mana-mana lokasi di sekitar tempat tinggal anda dan mengumpul jumlah jarak kayuhan sejauh 25 kilometer. Maklumat lanjut adalah seperti yang tertera di poster di bawah.\n'+
+    'Bagi setiap pendaftaran, anda akan diberi kit atau goodies menarik seperti jersi, medal, no. plat kayuhan, dan e-sijil! Bukan itu sahaja, perlindungan insuran juga tertakluk di bawah program kayuhan ini. Kit penyertaan ini akan dipos ke rumah anda secara percuma. \n',
+  
   },
   // Add more markers as needed
   // category
