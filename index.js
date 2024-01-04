@@ -156,7 +156,7 @@ const markers = [
     time:'8.30 am - 10.30am',
     photos: ['https://bebasnews.my/wp-content/uploads/2021/12/266785936_10159982093414948_4189104450872057655_n.jpg','https://twitter.com/KASA_MALAYSIA/status/1554316764074217473/photo/1'],
     description: 'Acara kutip sampah sambil riadah (kudah) di BANGI Tasik Cempaka meriah.\n' + 
-    'Selain mengutip sampah melebihi 100 plastik sampah, kami belajar tiga perkara penting:\n'+
+    'Selain mengutip sampah melebihi 100 plastik sampah, kami belajar tiga perkara penting\n'+
     '1. Lebih 80% isipadu sampah yang dikutip adalah plastik pembungkusan makanan, minuman dll.\n'+
     '2. Walaupun air Sungai Air Hitam (anak Sungai Langat) jernih tetapi dari jauh kelihatan keruh. Ini kerana dasar sungai dan tasik dipenuhi keladak dan selut yang terhasil daripada aktiviti guna tanah dll dalam lembangan. Kekeruhan ini jika dikocak akan berbau disebabkan keladak dan selut mendak dan tertimbun dalam plastik dll sehingga menyebabkan keadaan anaerobik.\n'+
     '3. Pengunjung terbahagi dua: (a) Datang hanya untuk beriadah tanpa menghiraukan suasana dan kebersihan sungai atau tasik (b) Datang untuk menikmati keindahan dan kebersihan sungai dan tasik, di samping beriadah.',
