@@ -533,6 +533,9 @@ const performDailyUpdate = async () => {
     const usersCollection = _firestore.collection('users');
     const usersSnapshot = await usersCollection.get();
 
+    const today = new Date();
+    const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+
     usersSnapshot.forEach(async (userDoc) => {
       const userUid = userDoc.id;
       const userData = userDoc.data();
@@ -540,14 +543,15 @@ const performDailyUpdate = async () => {
       // Get the 'point' value and store it in dailyPointValue
       const dailyPointValue = userData.point || 0;
 
-      // Store dailyPointValue based on the day
-      const today = new Date();
-      const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
-      const dailyPointUpdate = {};
-      dailyPointUpdate[dayOfWeek] = dailyPointValue;
+      // Retrieve existing dailyPoint or create an empty object
+      const existingDailyPoint = userData.dailyPoint || {};
 
+      // Update the specific day in the dailyPoint map
+      existingDailyPoint[dayOfWeek] = dailyPointValue;
+
+      // Update the user document
       await usersCollection.doc(userUid).update({
-        dailyPoint: dailyPointUpdate,
+        dailyPoint: existingDailyPoint,
         point: 0, // Reset 'point' to zero
       });
     });
@@ -561,7 +565,7 @@ const performDailyUpdate = async () => {
 app.get('/resetdaily', async (req, res) => {
   try {
     console.log('Resetting daily challenge via HTTP request.');
-    
+
     // Call the function to perform the daily update logic
     await performDailyUpdate();
 
@@ -573,6 +577,7 @@ app.get('/resetdaily', async (req, res) => {
     res.status(500).send('Internal Server Error');  // Send an error response to the Flutter app
   }
 });
+
 
 //this part used to calculate total point in a week
 // then it will store the weeklyPoint in firestore
