@@ -523,40 +523,46 @@ app.get('/blogs', (req, res) => {
 });
 
 
-app.post('/resetdaily', async (req, res) => {
+app.all('/resetdaily', async (req, res) => {
   try {
-    console.log('Daily reset triggered by cron-job.org.');
+    if (req.method === 'POST') {
+      console.log('Daily reset triggered by cron-job.org.');
     
-    // Perform the daily update logic here
-    const usersCollection = _firestore.collection('users');
-    const usersSnapshot = await usersCollection.get();
+      // Perform the daily reset logic here
+      const usersCollection = _firestore.collection('users');
+      const usersSnapshot = await usersCollection.get();
 
-    usersSnapshot.forEach(async (userDoc) => {
-      const userUid = userDoc.id;
-      const userData = userDoc.data();
+      usersSnapshot.forEach(async (userDoc) => {
+        const userUid = userDoc.id;
+        const userData = userDoc.data();
 
-      // Get the 'point' value and store it in dailyPointValue
-      const dailyPointValue = userData.point || 0;
+        // Get the 'point' value and store it in dailyPointValue
+        const dailyPointValue = userData.point || 0;
 
-      // Store dailyPointValue based on the day
-      const today = new Date();
-      const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
-      const dailyPointUpdate = {};
-      dailyPointUpdate[dayOfWeek] = dailyPointValue;
+        // Store dailyPointValue based on the day
+        const today = new Date();
+        const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+        const dailyPointUpdate = {};
+        dailyPointUpdate[dayOfWeek] = dailyPointValue;
 
-      await usersCollection.doc(userUid).update({
-        dailyPoint: dailyPointUpdate,
-        point: 0, // Reset 'point' to zero
+        await usersCollection.doc(userUid).update({
+          dailyPoint: dailyPointUpdate,
+          point: 0, // Reset 'point' to zero
+        });
       });
-    });
 
-    console.log('Daily reset completed.');
-    res.status(200).send('Daily reset completed.');
+      console.log('Daily reset completed.');
+      res.status(200).send('Daily reset completed.');
+    } else {
+      // Handle GET requests if needed
+      res.status(200).send('Carbon Footprint app - GET request received.');
+    }
   } catch (error) {
     console.error('Error during daily reset:', error);
     res.status(500).send('Internal Server Error');
   }
 });
+
 
 
 app.listen(port, () => console.log(`Carbon Footprint app listening on port ${port}!`));
