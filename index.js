@@ -523,10 +523,10 @@ app.get('/blogs', (req, res) => {
 });
 
 
-cron.schedule('00 00 * * *', async () => {
+const performDailyUpdate = async () => {
   try {
-    console.log('Cron job started for daily update.');
-    
+    console.log('Daily update started.');
+
     // Perform the daily update logic here
     const usersCollection = _firestore.collection('users');
     const usersSnapshot = await usersCollection.get();
@@ -554,15 +554,33 @@ cron.schedule('00 00 * * *', async () => {
   } catch (error) {
     console.error('Error during daily update:', error);
   }
+};
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Cron job to trigger daily update
+cron.schedule('00 00 * * *', async () => {
+  try {
+    console.log('Cron job started for daily update.');
+    await performDailyUpdate();
+    console.log('Daily update completed.');
+  } catch (error) {
+    console.error('Error during daily update:', error);
+  }
 }, {
   scheduled: true,
   timezone: 'Asia/Kuala_Lumpur'
 });
 
 // New route to handle the HTTP request triggered by the Flutter app
-app.get('/resetdaily', (req, res) => {
+app.get('/resetdaily', async (req, res) => {
   try {
     console.log('Resetting daily challenge via HTTP request.');
+    
+    // Call the function to perform the daily update logic
+    await performDailyUpdate();
 
     // You can add logic here to perform additional actions when the reset is triggered
 
