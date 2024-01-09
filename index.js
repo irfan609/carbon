@@ -523,46 +523,53 @@ app.get('/blogs', (req, res) => {
 });
 
 
-app.all('/resetdaily', async (req, res) => {
+const performDailyUpdate = async () => {
   try {
-    if (req.method === 'POST') {
-      console.log('Daily reset triggered by cron-job.org.');
-    
-      // Perform the daily reset logic here
-      const usersCollection = _firestore.collection('users');
-      const usersSnapshot = await usersCollection.get();
+    console.log('Daily update started.');
 
-      usersSnapshot.forEach(async (userDoc) => {
-        const userUid = userDoc.id;
-        const userData = userDoc.data();
+    // Perform the daily update logic here
+    const usersCollection = _firestore.collection('users');
+    const usersSnapshot = await usersCollection.get();
 
-        // Get the 'point' value and store it in dailyPointValue
-        const dailyPointValue = userData.point || 0;
+    usersSnapshot.forEach(async (userDoc) => {
+      const userUid = userDoc.id;
+      const userData = userDoc.data();
 
-        // Store dailyPointValue based on the day
-        const today = new Date();
-        const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
-        const dailyPointUpdate = {};
-        dailyPointUpdate[dayOfWeek] = dailyPointValue;
+      // Get the 'point' value and store it in dailyPointValue
+      const dailyPointValue = userData.point || 0;
 
-        await usersCollection.doc(userUid).update({
-          dailyPoint: dailyPointUpdate,
-          point: 0, // Reset 'point' to zero
-        });
+      // Store dailyPointValue based on the day
+      const today = new Date();
+      const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
+      const dailyPointUpdate = {};
+      dailyPointUpdate[dayOfWeek] = dailyPointValue;
+
+      await usersCollection.doc(userUid).update({
+        dailyPoint: dailyPointUpdate,
+        point: 0, // Reset 'point' to zero
       });
+    });
 
-      console.log('Daily reset completed.');
-      res.status(200).send('Daily reset completed.');
-    } else {
-      // Handle GET requests if needed
-      res.status(200).send('Carbon Footprint app - GET request received.');
-    }
+    console.log('Daily update completed.');
+  } catch (error) {
+    console.error('Error during daily update:', error);
+  }
+};
+
+app.get('/resetdaily', async (req, res) => {
+  try {
+    console.log('Resetting daily challenge via HTTP request.');
+    
+    // Call the function to perform the daily update logic
+    await performDailyUpdate();
+
+    // You can add logic here to perform additional actions when the reset is triggered
+
+    res.status(200).send('Reset successful');  // Send a response to the Flutter app
   } catch (error) {
     console.error('Error during daily reset:', error);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Internal Server Error');  // Send an error response to the Flutter app
   }
 });
-
-
 
 app.listen(port, () => console.log(`Carbon Footprint app listening on port ${port}!`));
