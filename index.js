@@ -523,6 +523,8 @@ app.get('/blogs', (req, res) => {
 });
 
 
+//this part used to reset point daily
+//then it will store the dailyPoint into firestore
 const performDailyUpdate = async () => {
   try {
     console.log('Daily update started.');
@@ -571,5 +573,50 @@ app.get('/resetdaily', async (req, res) => {
     res.status(500).send('Internal Server Error');  // Send an error response to the Flutter app
   }
 });
+
+//this part used to calculate total point in a week
+// then it will store the weeklyPoint in firestore
+const performWeeklyUpdate = async () => {
+  try {
+    console.log('Weekly update started.');
+
+    const usersCollection = _firestore.collection('users');
+    const usersSnapshot = await usersCollection.get();
+
+    usersSnapshot.forEach(async (userDoc) => {
+      const userUid = userDoc.id;
+      const userData = userDoc.data();
+
+      // Calculate the total points for the week
+      const weeklyPointValue = Object.values(userData.dailyPoint || {}).reduce((acc, val) => acc + val, 0);
+
+      // Update the 'weeklyPoint' field
+      await usersCollection.doc(userUid).update({
+        weeklyPoint: weeklyPointValue,
+      });
+    });
+
+    console.log('Weekly update completed.');
+  } catch (error) {
+    console.error('Error during weekly update:', error);
+  }
+};
+
+app.get('/weeklyPoint', async (req, res) => {
+  try {
+    console.log('Resetting weekly challenge via HTTP request.');
+
+    // Call the function to perform the weekly update logic
+    await performWeeklyUpdate();
+
+    // You can add logic here to perform additional actions when the reset is triggered
+
+    res.status(200).send('Reset successful');  // Send a response to the Flutter app
+  } catch (error) {
+    console.error('Error during weekly reset:', error);
+    res.status(500).send('Internal Server Error');  // Send an error response to the Flutter app
+  }
+});
+
 
 app.listen(port, () => console.log(`Carbon Footprint app listening on port ${port}!`));
