@@ -523,22 +523,26 @@ app.get('/blogs', (req, res) => {
 });
 
 
-cron.schedule('58 11 * * *', async () => {
+const performDailyUpdate = async () => {
   try {
-    console.log('Cron job started for daily update.');
+    console.log('Daily update started.');
 
-    // Perform the daily update logic directly in Firestore
+    // Your logic to reset data directly in Firestore
     const usersCollection = _firestore.collection('users');
     const usersSnapshot = await usersCollection.get();
 
     usersSnapshot.forEach(async (userDoc) => {
       const userUid = userDoc.id;
+      const userData = userDoc.data();
+
+      // Get the 'point' value and store it in dailyPointValue
+      const dailyPointValue = userData.point || 0;
 
       // Store dailyPointValue based on the day
       const today = new Date();
       const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
       const dailyPointUpdate = {};
-      dailyPointUpdate[dayOfWeek] = userDoc.data().point || 0;
+      dailyPointUpdate[dayOfWeek] = dailyPointValue;
 
       await usersCollection.doc(userUid).update({
         dailyPoint: dailyPointUpdate,
@@ -550,10 +554,27 @@ cron.schedule('58 11 * * *', async () => {
   } catch (error) {
     console.error('Error during daily update:', error);
   }
-}, {
-  scheduled: true,
-  timezone: 'Asia/Kuala_Lumpur'
+};
+
+// Endpoint to reset data
+app.post('/resetdaily', async (req, res) => {
+  try {
+    // Check for the x-cyclic header
+    if (req.headers['x-cyclic'] === 'cron') {
+      console.log('Cyclic Cron job started.');
+      
+      // Call the common logic function
+      await performDailyUpdate();
+
+      console.log('Cyclic Cron job completed.');
+      res.status(200).send('Reset completed.');
+    } else {
+      console.log('Invalid request source.');
+      res.status(403).send('Forbidden');
+    }
+  } catch (error) {
+    console.error('Error during Cyclic Cron job:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
-
-
 app.listen(port, () => console.log(`Carbon Footprint app listening on port ${port}!`));
