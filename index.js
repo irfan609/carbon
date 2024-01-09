@@ -31,6 +31,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//////////////////////////////////Onboarding Questions////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 var questions = [
   {
     "id": 1,
@@ -95,7 +97,14 @@ var questions = [
     "question": "Do you use renewable energy sources at your home ?",
     "options": ['Yes', 'Not Yet', 'Not Sure'],
   },
+
+  //make sure every question have unique id
+  //questions are limited to 9
+  //options are syncronize with calculation
+  //edit the calculation if you have edited the options
 ];
+
+//////////////////////////////////Todays News////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var blogs = [
   {
@@ -133,17 +142,27 @@ var blogs = [
     "author": "Bernama",
     "link" : "https://www.nst.com.my/news/nation/2023/11/978447/cop28-world-leaders-address-climate-benchmark-dubai"
   },
+
+  // Add more news as needed
   
 ]
+//////////////////////////////////Daily Tasks////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var dailyTasks = {
-  '1': 'Default Task 1',
-  '2': 'Default Task 2',
-  '3': 'Default Bonus Task',
+  '1': 'Recycle 2 items',
+  '2': 'Sleep without using air conditioner',
+  '3': 'Use public transport',
 };
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// tasks limited to 3
+// 1 = task 1
+// 1 = task 2
+// 1 = Bonus task
+// do not change the id number
+
+//////////////////////////////////Local Events////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const markers = [
   {
@@ -154,7 +173,7 @@ const markers = [
     category: 1,
     date:'12/12/2023',
     time:'8.30 am - 10.30am',
-    photos: ['https://bebasnews.my/wp-content/uploads/2021/12/266785936_10159982093414948_4189104450872057655_n.jpg','https://scontent.fkul8-1.fna.fbcdn.net/v/t39.30808-6/364803026_716857273813521_3923233418144404509_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=3635dc&_nc_ohc=Br2jPHKl60QAX-R3rhu&_nc_ht=scontent.fkul8-1.fna&oh=00_AfCQESj1fqnXnkuijbeYO8SjWauM5U8X5y7JcQeqn6GhRg&oe=659A6C0A'],
+    photos: ['https://bebasnews.my/wp-content/uploads/2021/12/266785936_10159982093414948_4189104450872057655_n.jpg','https://twitter.com/KASA_MALAYSIA/status/1554316764074217473/photo/1'],
     description: 'Acara kutip sampah sambil riadah (kudah) di BANGI Tasik Cempaka meriah.\n' + 
     'Selain mengutip sampah melebihi 100 plastik sampah, kami belajar tiga perkara penting:\n'+
     '1. Lebih 80% isipadu sampah yang dikutip adalah plastik pembungkusan makanan, minuman dll.\n'+
@@ -234,63 +253,11 @@ const markers = [
   // 1 = communal work
   // 2 = campaign and show
   // 3 = activity
+  //makesure every marker have unique markerId
 ];
 
-app.get('/marker', (req, res) => {
-  const categorizedMarkers = markers.map((marker) => {
-    let color;
-    switch (marker.category) {
-      case 1:
-        color = 'green';
-        break;
-      case 2:
-        color = 'yellow';
-        break;
-      case 3:
-        color = 'blue';
-        break;
-      case 4:
-        color = 'grey';
-        break;
-      default:
-        color = 'white'; // Default color for unknown categories
-        break;
-    }
-    return { ...marker, color };
-  });
+//////////////////////////////////Calculation for Carbon emmision////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  res.json(categorizedMarkers);
-});
-
-app.get('/marker/:id', (req, res) => {
-  const markerId = req.params.id;
-  const marker = markers.find((m) => m.markerId === markerId);
-
-  if (marker) {
-    res.json(marker);
-  } else {
-    res.status(404).json({ error: 'Marker not found' });
-  }
-});
-
-app.get('/', (req, res) => {
-  res.json(questions);
-});
-
-app.get('/dailyTasks', (req, res) => {
-  res.json(dailyTasks);
-});
-
-app.post('/dailyTasks', (req, res) => {
-  // Assuming you are sending an updated dailyTasks object in the request body
-  const tasks = req.body;
-  dailyTasks = tasks;
-  res.send('Daily tasks updated successfully');
-});
-
-app.get('/blogs', (req, res) => {
-  res.json(blogs);
-});
 app.post('/calculate', (req, res) => {
 
   var carbonEmission = 2.33;
@@ -497,6 +464,64 @@ app.post('/calculate', (req, res) => {
   var result = { "result": carbonEmission, "travel": travel, "diet": diet, "carTravel": carTravel, "fuel": fuel, "shopping": shopping, "homeSize": homeSize, "homePeople": homePeople, "pet": pet };
   res.send(result);
 });
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.get('/marker', (req, res) => {
+  const categorizedMarkers = markers.map((marker) => {
+    let color;
+    switch (marker.category) {
+      case 1:
+        color = 'green';
+        break;
+      case 2:
+        color = 'yellow';
+        break;
+      case 3:
+        color = 'blue';
+        break;
+      case 4:
+        color = 'grey';
+        break;
+      default:
+        color = 'white'; // Default color for unknown categories
+        break;
+    }
+    return { ...marker, color };
+  });
+
+  res.json(categorizedMarkers);
+});
+
+app.get('/marker/:id', (req, res) => {
+  const markerId = req.params.id;
+  const marker = markers.find((m) => m.markerId === markerId);
+
+  if (marker) {
+    res.json(marker);
+  } else {
+    res.status(404).json({ error: 'Marker not found' });
+  }
+});
+
+app.get('/', (req, res) => {
+  res.json(questions);
+});
+
+app.get('/dailyTasks', (req, res) => {
+  res.json(dailyTasks);
+});
+
+app.post('/dailyTasks', (req, res) => {
+  // Assuming you are sending an updated dailyTasks object in the request body
+  const tasks = req.body;
+  dailyTasks = tasks;
+  res.send('Daily tasks updated successfully');
+});
+
+app.get('/blogs', (req, res) => {
+  res.json(blogs);
+});
+
 
 cron.schedule('59 23 * * *', async () => {
   try {
