@@ -523,26 +523,22 @@ app.get('/blogs', (req, res) => {
 });
 
 
-cron.schedule('11 49 * * *', async () => {
+cron.schedule('58 11 * * *', async () => {
   try {
     console.log('Cron job started for daily update.');
-    
-    // Perform the daily update logic here
+
+    // Perform the daily update logic directly in Firestore
     const usersCollection = _firestore.collection('users');
     const usersSnapshot = await usersCollection.get();
 
     usersSnapshot.forEach(async (userDoc) => {
       const userUid = userDoc.id;
-      const userData = userDoc.data();
-
-      // Get the 'point' value and store it in dailyPointValue
-      const dailyPointValue = userData.point || 0;
 
       // Store dailyPointValue based on the day
       const today = new Date();
       const dayOfWeek = today.toLocaleDateString('en-US', { weekday: 'long' });
       const dailyPointUpdate = {};
-      dailyPointUpdate[dayOfWeek] = dailyPointValue;
+      dailyPointUpdate[dayOfWeek] = userDoc.data().point || 0;
 
       await usersCollection.doc(userUid).update({
         dailyPoint: dailyPointUpdate,
