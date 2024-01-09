@@ -523,7 +523,7 @@ app.get('/blogs', (req, res) => {
 });
 
 
-cron.schedule('11 48 * * *', async () => {
+cron.schedule('11 49 * * *', async () => {
   try {
     console.log('Cron job started for daily update.');
     
