@@ -64,7 +64,7 @@ var questions = [
   {
     "id": 4,
     "question": "Which kind of fuel do you use ?",
-    "options": ['Electric', 'Natural gas', 'Petrol, Disel'],
+    "options": ['Electric', 'Natural gas', 'Petrol, Diesel'],
   },
   {
     "id": 5,
@@ -523,7 +523,7 @@ app.get('/blogs', (req, res) => {
 });
 
 
-cron.schedule('59 23 * * *', async () => {
+cron.schedule('00 00 * * *', async () => {
   try {
     console.log('Cron job started for daily update.');
     
@@ -559,5 +559,18 @@ cron.schedule('59 23 * * *', async () => {
   timezone: 'Asia/Kuala_Lumpur'
 });
 
+// New route to handle the HTTP request triggered by the Flutter app
+app.get('/resetdaily', (req, res) => {
+  try {
+    console.log('Resetting daily challenge via HTTP request.');
+
+    // You can add logic here to perform additional actions when the reset is triggered
+
+    res.status(200).send('Reset successful');  // Send a response to the Flutter app
+  } catch (error) {
+    console.error('Error during daily reset:', error);
+    res.status(500).send('Internal Server Error');  // Send an error response to the Flutter app
+  }
+});
 
 app.listen(port, () => console.log(`Carbon Footprint app listening on port ${port}!`));
