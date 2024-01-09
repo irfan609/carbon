@@ -523,11 +523,11 @@ app.get('/blogs', (req, res) => {
 });
 
 
-const performDailyUpdate = async () => {
+cron.schedule('59 23 * * *', async () => {
   try {
-    console.log('Daily update started.');
-
-    // Your logic to reset data directly in Firestore
+    console.log('Cron job started for daily update.');
+    
+    // Perform the daily update logic here
     const usersCollection = _firestore.collection('users');
     const usersSnapshot = await usersCollection.get();
 
@@ -554,27 +554,10 @@ const performDailyUpdate = async () => {
   } catch (error) {
     console.error('Error during daily update:', error);
   }
-};
-
-// Endpoint to reset data
-app.post('/resetdaily', async (req, res) => {
-  try {
-    // Check for the x-cyclic header
-    if (req.headers['x-cyclic'] === 'cron') {
-      console.log('Cyclic Cron job started.');
-      
-      // Call the common logic function
-      await performDailyUpdate();
-
-      console.log('Cyclic Cron job completed.');
-      res.status(200).send('Reset completed.');
-    } else {
-      console.log('Invalid request source.');
-      res.status(403).send('Forbidden');
-    }
-  } catch (error) {
-    console.error('Error during Cyclic Cron job:', error);
-    res.status(500).send('Internal Server Error');
-  }
+}, {
+  scheduled: true,
+  timezone: 'Asia/Kuala_Lumpur'
 });
+
+
 app.listen(port, () => console.log(`Carbon Footprint app listening on port ${port}!`));
